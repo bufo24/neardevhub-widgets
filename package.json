@@ -2,15 +2,20 @@
   "name": "neardevhub-widgets",
   "version": "1.0.0",
   "description": "NEAR DevHub widgets for NEAR Social",
+  "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.38.1",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "near-social-vm-types": "^1.0.0",
     "prettier": "^2.8.4",
-    "replace-in-files": "^3.0.0"
+    "replace-in-files": "^3.0.0",
+    "sucrase": "^3.34.0"
   },
   "scripts": {
     "fmt": "prettier --write '**/*.{js,jsx,ts,tsx,json}'",
     "fmt:check": "prettier --check '**/*.{js,jsx,ts,tsx,json}'",
-    "build": "npm run fmt && node ./module/include.js",
+    "build": "npm run fmt && mkdir -p .bos/transpiled/src && sucrase ./src -d ./dist --transforms typescript,jsx --jsx-runtime preserve --disable-es-transforms --out-extension jsx && node ./build.js",
     "dev:testnet": "./scripts/dev.sh",
     "dev:mainnet": "./scripts/dev.sh -a devgovgigs.near -c devgovgigs.near -n mainnet",
     "dev": "npm run dev:mainnet",
