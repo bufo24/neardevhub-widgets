@@ -13,5 +13,7 @@ declare interface BaseProps {
 }
 
 declare var styled = {
-  div
-}
+  div,
+  a,
+  ul,
+};

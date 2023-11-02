@@ -78,7 +78,7 @@ const links = [
   },
 ];
 
-export default function({page}: BaseProps) {
+export default function ({ page }: BaseProps) {
   return (
     <Navbar>
       <Logo />
@@ -97,5 +97,4 @@ export default function({page}: BaseProps) {
       </LinksContainer>
     </Navbar>
   );
-  
-} 
+}
